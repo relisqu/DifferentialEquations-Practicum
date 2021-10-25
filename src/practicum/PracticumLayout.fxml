@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="BackgroundVBox" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="practicum.PracticumLayoutController">
+   <children>
+      <HBox prefWidth="581.0">
+         <children>
+            <VBox spacing="10.0">
+               <children>
+                  <TabPane prefHeight="400.0" prefWidth="465.0" tabClosingPolicy="UNAVAILABLE">
+                     <tabs>
+                        <Tab fx:id="FunctionTab" text="Function">
+                           <content>
+                              <StackPane fx:id="FuncGraphPane">
+                                 <children>
+                                    <LineChart fx:id="FunctionChart">
+                                      <xAxis>
+                                        <NumberAxis forceZeroInRange="false" side="BOTTOM" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis forceZeroInRange="false" side="LEFT" />
+                                      </yAxis>
+                                    </LineChart>
+                                 </children>
+                              </StackPane>
+                           </content>
+                        </Tab>
+                        <Tab fx:id="LteTab" text="LTE">
+                           <content>
+                              <StackPane fx:id="LTEGraphPane">
+                                 <children>
+                                    <LineChart fx:id="LteChart">
+                                      <xAxis>
+                                        <NumberAxis forceZeroInRange="false" side="BOTTOM" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis forceZeroInRange="false" side="LEFT" />
+                                      </yAxis>
+                                    </LineChart>
+                                 </children>
+                              </StackPane>
+                           </content>
+                        </Tab>
+                        <Tab fx:id="GteTab" text="GTE">
+                           <content>
+                              <StackPane fx:id="GTEGraphPane">
+                                 <children>
+                                    <LineChart fx:id="GteChart">
+                                      <xAxis>
+                                        <NumberAxis forceZeroInRange="false" side="BOTTOM" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis forceZeroInRange="false" side="LEFT" />
+                                      </yAxis>
+                                    </LineChart>
+                                 </children>
+                              </StackPane>
+                           </content>
+                        </Tab>
+                     </tabs>
+                  </TabPane>
+                  <HBox alignment="CENTER" spacing="15.0">
+                     <children>
+                        <CheckBox fx:id="ExactSolutionCheckbox" mnemonicParsing="false" onAction="#RecalculateGraph" text="Exact solution" />
+                        <CheckBox fx:id="EulerCheckbox" mnemonicParsing="false" onAction="#RecalculateGraph" text="Euler" />
+                        <CheckBox fx:id="ImprovedEulerCheckbox" mnemonicParsing="false" onAction="#RecalculateGraph" text="Improved Euler" />
+                        <CheckBox fx:id="RungeKuttaCheckbox" mnemonicParsing="false" onAction="#RecalculateGraph" text="Runge-Kutta" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </VBox>
+            <Separator orientation="VERTICAL" prefHeight="200.0">
+               <padding>
+                  <Insets right="5.0" />
+               </padding>
+            </Separator>
+            <VBox alignment="CENTER" prefHeight="230.0" prefWidth="140.0" spacing="10.0">
+               <children>
+                  <HBox layoutX="10.0" layoutY="294.0">
+                     <children>
+                        <Label prefHeight="18.0" prefWidth="100.0" text="X0" />
+                        <TextField fx:id="X0Field" onTextChange="#SetX0Value" />
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <Label prefHeight="18.0" prefWidth="100.0" text="Y0" />
+                        <TextField fx:id="Y0Field" onTextChange="#SetY0Value" />
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <Label prefHeight="18.0" prefWidth="100.0" text="h" />
+                        <TextField fx:id="HField" onTextChange="#SetHValue" />
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <Label prefHeight="18.0" prefWidth="100.0" text="x" />
+                        <TextField fx:id="XField" onTextChange="#SetXValue" />
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <Label prefHeight="18.0" prefWidth="100.0" text="N0" />
+                        <TextField fx:id="N0Field" onTextChange="#SetN0Value" />
+                     </children>
+                  </HBox>
+                  <Separator prefWidth="200.0" />
+                  <Button fx:id="CalculateButton" mnemonicParsing="false" onAction="#Calculate" text="Calculate" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>
