@@ -1,6 +1,8 @@
 
 package practicum;
 
+import GUIExtentions.AlertRaiser;
+import GUIExtentions.ZoomManager;
 import GUIExtentions.GapLineChart;
 import GUIExtentions.GapNumberAxis;
 import java.net.URL;
